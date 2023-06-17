@@ -1,0 +1,178 @@
+{ 
+  "drinks" : 
+  {
+    "signature" : 
+    [
+      { 
+        "name"  : "Ko.Risu",
+        "ice"  : true,
+        "hot"    : true,
+        "price" : "25.000",
+        "img" : "Korisu.jpg",
+        "description" : "Kopi Susu Risu"
+      },
+      { 
+        "name"  : "KoRisuRen",
+        "ice"  : true,
+        "hot"    : true,
+        "price" : "28.000",
+        "img" : "Korisuren.jpg",
+        "description" : "Kopi Susu Gula Aren Risu"
+      },
+      { 
+        "name"  : "Kuroi Ringo",
+        "ice"  : true,
+        "hot"    : false,
+        "price" : "28.000",
+        "img" : "Kuroi-Ringo.jpg",
+        "description" : "Kopi Moctail Varian Apel Hijau"
+      },
+      { 
+        "name"  : "Orenji Koohi",
+        "ice"  : true,
+        "hot"    : false,
+        "price" : "28.000",
+        "img" : "Orenji-Koohi.jpg",
+        "description" : "Kopi Moctail Varian Apel Orange"
+      }
+    ],
+    "espresso" :
+    [
+      {
+        "name"  : "Mocha",
+        "ice"  : false,
+        "hot"    : false,
+        "price" : "25.000",
+        "img" : "mocha.jpg",
+        "description" : ""
+      },
+      {
+        "name"  : "Cappucino",
+        "ice"  : false,
+        "hot"    : false,
+        "price" : "25.000",
+        "img" : "cappucino.jpg",
+        "description" : ""
+      },
+      {
+        "name"  : "Coffee Latte",
+        "ice"  : false,
+        "hot"    : false,
+        "price" : "25.000",
+        "img" : "coffee-latte.jpg",
+        "description" : ""
+      }
+    ],
+    "nonCoffe" :
+    [
+      { 
+        "name"  : "Sakura Latte",
+        "ice"  : true,
+        "hot"    : true,
+        "price" : "25.000",
+        "img" : "Sakura-Latte.jpg",
+        "description" : "Sakura Syrup + Fresh Milk"
+      },
+      { 
+        "name"  : "Choco Latte",
+        "ice"  : true,
+        "hot"    : true,
+        "price" : "25.000",
+        "img" : "Choco-Latte.jpg",
+        "description" : "Choco Powder + Fresh Milk"
+      },
+      { 
+        "name"  : "Mactcha Latte",
+        "ice"  : true,
+        "hot"    : true,
+        "price" : "25.000",
+        "img" : "Matcha-Latte.jpg",
+        "description" : "Matcha Powder + Fresh Milk"
+      },
+      { 
+        "name"  : "Regal Latte",
+        "ice"  : true,
+        "hot"    : false,
+        "price" : "28.000",
+        "img" : "Regal-Latte.jpg",
+        "description" : "Choco Powder + Fresh Milk + Biskuit Regal"
+      },
+      { 
+        "name"  : "Sakura Cookies",
+        "ice"  : true,
+        "hot"    : false,
+        "price" : "28.000",
+        "img" : "Sakura-Cookies.jpg",
+        "description" : "Sakura Syrup + Fresh Milk + Biskuit Regal"
+      }
+    ]
+  },
+  "foods" : 
+  [
+    { 
+      "name"  : "O-Risu",
+      "varian" : [],
+      "price" : "23.000",
+      "img" : "O-Risu.jpg",
+      "description" : "Telur dengan bumbu khas RISU dibalut kulit lumpia"
+    },
+    { 
+      "name"  : "Sun's Banana",
+      "varian" : [
+        "Cokelat", "Keju"
+      ],
+      "price" : "28.000",
+      "img" : "Suns-Banana.jpg",
+      "description" : "Pisang dengan isian yang dibalut kulit lumpia"
+    },
+    { 
+      "name"  : "Pang-Risu Kuah",
+      "varian" : [],
+      "price" : "30.000",
+      "img" : "Pangrisu-Kuah.jpg",
+      "description" : "Pangsit isi ayam & keju. Dengan tingkatan pedas lvl 0-3"
+    },
+    { 
+      "name"  : "Pang-Risu Goreng",
+      "varian" : [],
+      "price" : "30.000",
+      "img" : "pangrisu.jpg",
+      "description" : "Pangsit isi ayam & keju. Dengan tingkatan pedas lvl 0-3"
+    },
+    { 
+      "name"  : "Sushi Risu Egg Roll",
+      "varian" : [],
+      "price" : "25.000",
+      "img" : "sushirisu-Egg.jpg",
+      "description" : "Sushi ala RISU dengan isian wortel & timun"
+    },
+    { 
+      "name"  : "Sushi Risu",
+      "varian" : ["Spicy Chicken", "Chicken Katsu"],
+      "price" : "28.000",
+      "img" : "sushirisu.jpg",
+      "description" : "Sushi ala RISU dengan isian wortel & timun"
+    },
+    { 
+      "name"  : "Nana Pie",
+      "varian" : [],
+      "price" : "25.000",
+      "img" : "Nana-Pie.jpg",
+      "description" : "2 PCS pie isian apel favorit Nana-MLBB"
+    },
+    { 
+      "name"  : "Bom-Bom PacMan",
+      "varian" : ["Pedas", "Balado", "Jagung Bakar"],
+      "price" : "20.000",
+      "img" : "Bom-Bom-Pacman.jpg",
+      "description" : "Cimol Ala RISU dengan isian Mozzarella"
+    },
+    { 
+      "name"  : "SuGer",
+      "varian" : [],
+      "price" : "25.000",
+      "img" : "suger.jpg",
+      "description" : "Burger dengan resep rahasia krusty krab"
+    }
+  ]
+}

@@ -40,14 +40,20 @@
 </style>
 
 <body class="bg-[#111111]">
-  <section class="mx-auto pb-6" x-data="{showMakanan: false, showMinuman:true}">
-    <div class="p-8">
-      <h1 class="text-white font-semibold text-lg lg:text-center" style="font-family: 'Public Pixel', sans-serif;">Welcome to Risu Cafe</h1>
-      <p class="text-primary font-semibold text-sm mt-5 lg:text-center" style="font-family: 'Public Pixel', sans-serif;">Game. Coffe. Repeat</p>
+  <section class="mx-auto pb-6" x-data="{showMakanan: false, showMinuman:true, products:[], open:false, product: []}">
+    <div 
+      class="p-8"
+      x-init="
+        fetch('./menu.json')
+        .then(response => response.json())
+        .then(data => products = data)
+      "
+    >
+      <h1 class="text-white font-semibold text-lg lg:text-center" style="font-family: 'Public Pixel', sans-serif;">Welcome to RISU Cafe</h1>
+      <p class="text-primary font-semibold text-sm mt-5 lg:text-center" style="font-family: 'Public Pixel', sans-serif;">Game. Coffee. Repeat.</p>
       <div class="menu mx-auto flex justify-between border w-52 rounded-lg bg-[#FCF2D9] mt-5">
         <button 
           @click="
-            console.log('tes')
             showMakanan=false
             showMinuman=true
           "
@@ -66,7 +72,7 @@
           class="text-[11px] py-2 px-2 rounded-lg font-bold"
           style="font-family: 'Public Pixel', sans-serif;"
         >
-          Makanan
+          Cemilan
         </button>
       </div>
 
@@ -79,221 +85,197 @@
         </h3>
   
         <div class="products flex gap-4 flex-wrap justify-center">
-          <div 
-            class="product-card h-[211px] w-[155px] rounded-lg mt-4 relative border border-[#46E300]"
-            style="box-shadow: 0 0 6px 1px #46E300;"
-          >
-            <div class="absolute top-1 right-1">
-              <p class="text-[#AFE894] font-bold leading-4 text-xs">ICE</p>
-              <p class="text-[#AFE894] font-bold leading-4 text-xs">HOT</p>
+          <template x-for="data in products.drinks.signature">
+            <div 
+              class="product-card h-[211px] w-[155px] rounded-lg mt-4 relative border border-[#46E300] cursor-pointer"
+              style="box-shadow: 0 0 6px 1px #46E300;"
+              x-on:click="
+                open = true
+                product = data
+              "
+            >
+              <div class="absolute top-1 right-1">
+                <p class="text-[#AFE894] font-bold leading-4 text-xs" x-show="data.ice">ICE</p>
+                <p class="text-[#AFE894] font-bold leading-4 text-xs" x-show="data.hot">HOT</p>
+              </div>
+              <img x-bind:src="'./assets/img/products/'+data.img" src="./assets/img/products/Korisu.jpg" alt="" class="rounded-lg object-cover h-[211px] w-[155px]">
+              <div class="absolute bottom-0 px-4 pb-4">
+                <h3 class="product-title text-primary leading-4 font-semibold text-base" style="text-shadow: 0px 0px 9px #000000, 0px 0px 15px #FFFFFF, 0px 0px 5px #000000;" x-text="data.name">
+                  Ko.Risu
+                </h3>
+                <h2 
+                  class="price text-white mt-3 font-semibold text-xs" 
+                  style="text-shadow: 0px 0px 9px #46E300, 0px 0px 15px #46E300, 0px 0px 5px #46E300; font-family: 'Public Pixel', sans-serif;"
+                  x-text="data.price"
+                >
+                  Rp.25.000
+                </h2>
+              </div>
             </div>
-            <img src="./assets/img/products/Korisu.jpg" alt="" class="rounded-lg object-cover h-[211px] w-[155px]">
-            <div class="absolute bottom-0 px-4 pb-4">
-              <h3 class="product-title text-primary leading-4 font-semibold text-base" style="text-shadow: 0px 0px 9px #000000, 0px 0px 15px #FFFFFF, 0px 0px 5px #000000;">Ko.Risu</h3>
-              <h2 
-                class="price text-white mt-3 font-semibold text-xs" 
-                style="text-shadow: 0px 0px 9px #46E300, 0px 0px 15px #46E300, 0px 0px 5px #46E300; font-family: 'Public Pixel', sans-serif;"
-              >
-                Rp.25.000
-              </h2>
-            </div>
-          </div>
-          <div 
-            class="product-card h-[211px] w-[155px] rounded-lg mt-4 relative border border-[#46E300]"
-            style="box-shadow: 0 0 6px 1px #46E300;"
-          >
-            <div class="absolute top-1 right-1">
-              <p class="text-[#AFE894] font-bold leading-4 text-xs">ICE</p>
-              <p class="text-[#AFE894] font-bold leading-4 text-xs">HOT</p>
-            </div>
-            <img src="./assets/img/products/Korisuren.JPG" alt="" class="rounded-lg object-cover h-[211px] w-[155px]">
-            <div class="absolute bottom-0 px-4 pb-4">
-              <h3 class="product-title text-primary leading-4 font-semibold text-base" style="text-shadow: 0px 0px 9px #000000, 0px 0px 15px #FFFFFF, 0px 0px 5px #000000;">KoRisuRen</h3>
-              <h2 
-                class="price text-white mt-3 font-semibold text-xs" 
-                style="text-shadow: 0px 0px 9px #46E300, 0px 0px 15px #46E300, 0px 0px 5px #46E300; font-family: 'Public Pixel', sans-serif;"
-              >
-                Rp.28.000
-              </h2>
-            </div>
-          </div>
-          <div 
-            class="product-card h-[211px] w-[155px] rounded-lg mt-4 relative border border-[#46E300]"
-            style="box-shadow: 0 0 6px 1px #46E300;"
-          >
-            <img src="./assets/img/products/Kuroi-Ringo.jpg" alt="" class="rounded-lg object-cover h-[211px] w-[155px]">
-            <div class="absolute top-1 right-1">
-              <p class="text-[#AFE894] font-bold leading-4 text-xs">ICE</p>
-            </div>
-            <div class="absolute bottom-0 px-4 pb-4">
-              <h3 class="product-title text-primary leading-4 font-semibold text-base" style="text-shadow: 0px 0px 9px #000000, 0px 0px 15px #FFFFFF, 0px 0px 5px #000000;">
-                Kuroi Ringo
-              </h3>
-              <h2 
-                class="price text-white mt-3 font-semibold text-xs" 
-                style="text-shadow: 0px 0px 9px #46E300, 0px 0px 15px #46E300, 0px 0px 5px #46E300; font-family: 'Public Pixel', sans-serif;"
-              >
-                Rp.28.000
-              </h2>
-            </div>
-          </div>
-          <div 
-            class="product-card h-[211px] w-[155px] rounded-lg mt-4 relative border border-[#46E300]"
-            style="box-shadow: 0 0 6px 1px #46E300;"
-          >
-            <img src="./assets/img/products/Orenji-Koohi.jpg" alt="" class="rounded-lg object-cover h-[211px] w-[155px]">
-            <div class="absolute top-1 right-1">
-              <p class="text-[#AFE894] font-bold leading-4 text-xs">ICE</p>
-            </div>
-            <div class="absolute bottom-0 px-4 pb-4">
-              <h3 class="product-title text-primary leading-4 font-semibold text-base" style="text-shadow: 0px 0px 9px #000000, 0px 0px 15px #FFFFFF, 0px 0px 5px #000000;">
-                Orenji Koohi
-              </h3>
-              <h2 
-                class="price text-white mt-3 font-semibold text-xs" 
-                style="text-shadow: 0px 0px 9px #46E300, 0px 0px 15px #46E300, 0px 0px 5px #46E300; font-family: 'Public Pixel', sans-serif;"
-              >
-                Rp.28.000
-              </h2>
-            </div>
-          </div>
+          </template>
         </div>
+
         <h3 
-          class="text-[#46E300] mt-5 lg:text-center"
+          class="text-[#46E300] mt-8 lg:text-center"
+          style="font-family: 'Public Pixel', sans-serif;"
+        >
+          Espresso Based
+        </h3>
+  
+        <div class="products flex gap-4 flex-wrap justify-center">
+          <template x-for="data in products.drinks.espresso">
+            <div 
+              class="product-card h-[211px] w-[155px] rounded-lg mt-4 relative border border-[#46E300] cursor-pointer"
+              style="box-shadow: 0 0 6px 1px #46E300;"
+              x-on:click="
+                open = true
+                product = data
+              "
+            >
+              <div class="absolute top-1 right-1">
+                <p class="text-[#AFE894] font-bold leading-4 text-xs" x-show="data.ice">ICE</p>
+                <p class="text-[#AFE894] font-bold leading-4 text-xs" x-show="data.hot">HOT</p>
+              </div>
+              <img x-bind:src="'./assets/img/products/'+data.img" src="./assets/img/products/Korisu.jpg" alt="" class="rounded-lg object-cover h-[211px] w-[155px]">
+              <div class="absolute bottom-0 px-4 pb-4">
+                <h3 class="product-title text-primary leading-4 font-semibold text-base" style="text-shadow: 0px 0px 9px #000000, 0px 0px 15px #FFFFFF, 0px 0px 5px #000000;" x-text="data.name">
+                  Ko.Risu
+                </h3>
+                <h2 
+                  class="price text-white mt-3 font-semibold text-xs" 
+                  style="text-shadow: 0px 0px 9px #46E300, 0px 0px 15px #46E300, 0px 0px 5px #46E300; font-family: 'Public Pixel', sans-serif;"
+                  x-text="data.price"
+                >
+                  Rp.25.000
+                </h2>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <h3 
+          class="text-[#46E300] mt-8 lg:text-center"
           style="font-family: 'Public Pixel', sans-serif;"
         >
           Non-Coffe
         </h3>
   
         <div class="products flex gap-4 flex-wrap justify-center">
-          <div 
-            class="product-card h-[211px] w-[155px] rounded-lg mt-4 relative border border-[#46E300]"
-            style="box-shadow: 0 0 6px 1px #46E300;"
-          >
-            <div class="absolute top-1 right-1">
-              <p class="text-[#AFE894] font-bold leading-4 text-xs">ICE</p>
+          <template x-for="data in products.drinks.nonCoffe">
+            <div 
+              class="product-card h-[211px] w-[155px] rounded-lg mt-4 relative border border-[#46E300] cursor-pointer"
+              style="box-shadow: 0 0 6px 1px #46E300;"
+              x-on:click="
+                open = true
+                product = data
+              "
+            >
+              <div class="absolute top-1 right-1">
+                <p class="text-[#AFE894] font-bold leading-4 text-xs" x-show="data.ice">ICE</p>
+                <p class="text-[#AFE894] font-bold leading-4 text-xs" x-show="data.hot">HOT</p>
+              </div>
+              <img x-bind:src="'./assets/img/products/'+data.img" src="./assets/img/products/Korisu.jpg" alt="" class="rounded-lg object-cover h-[211px] w-[155px]">
+              <div class="absolute bottom-0 px-4 pb-4">
+                <h3 class="product-title text-primary leading-4 font-semibold text-base" style="text-shadow: 0px 0px 9px #000000, 0px 0px 15px #FFFFFF, 0px 0px 5px #000000;" x-text="data.name">
+                  Ko.Risu
+                </h3>
+                <h2 
+                  class="price text-white mt-3 font-semibold text-xs" 
+                  style="text-shadow: 0px 0px 9px #46E300, 0px 0px 15px #46E300, 0px 0px 5px #46E300; font-family: 'Public Pixel', sans-serif;"
+                  x-text="data.price"
+                >
+                  Rp.25.000
+                </h2>
+              </div>
             </div>
-            <img src="./assets/img/products/Regal-Latte.jpg" alt="" class="rounded-lg object-cover h-[211px] w-[155px]">
-            <div class="absolute bottom-0 px-4 pb-4">
-              <h3 class="product-title text-primary leading-4 font-semibold text-base" style="text-shadow: 0px 0px 9px #000000, 0px 0px 15px #FFFFFF, 0px 0px 5px #000000;">Regal Latte</h3>
-              <h2 
-                class="price text-white mt-3 font-semibold text-xs" 
-                style="text-shadow: 0px 0px 9px #46E300, 0px 0px 15px #46E300, 0px 0px 5px #46E300; font-family: 'Public Pixel', sans-serif;"
-              >
-                Rp.25.000
-              </h2>
-            </div>
-          </div>
-          <div 
-            class="product-card h-[211px] w-[155px] rounded-lg mt-4 relative border border-[#46E300]"
-            style="box-shadow: 0 0 6px 1px #46E300;"
-          >
-            <div class="absolute top-1 right-1">
-              <p class="text-[#AFE894] font-bold leading-4 text-xs">ICE</p>
-            </div>
-            <img src="./assets/img/products/Sakura-Cookies.jpg" alt="" class="rounded-lg object-cover h-[211px] w-[155px]">
-            <div class="absolute bottom-0 px-4 pb-4">
-              <h3 class="product-title text-primary leading-4 font-semibold text-base" style="text-shadow: 0px 0px 9px #000000, 0px 0px 15px #FFFFFF, 0px 0px 5px #000000;">Sakura Cookies</h3>
-              <h2 
-                class="price text-white mt-3 font-semibold text-xs" 
-                style="text-shadow: 0px 0px 9px #46E300, 0px 0px 15px #46E300, 0px 0px 5px #46E300; font-family: 'Public Pixel', sans-serif;"
-              >
-                Rp.28.000
-              </h2>
-            </div>
-          </div>
-          <div 
-            class="product-card h-[211px] w-[155px] rounded-lg mt-4 relative border border-[#46E300]"
-            style="box-shadow: 0 0 6px 1px #46E300;"
-          >
-            <img src="./assets/img/products/Sakura-Latte.jpg" alt="" class="rounded-lg object-cover h-[211px] w-[155px]">
-            <div class="absolute top-1 right-1">
-              <p class="text-[#AFE894] font-bold leading-4 text-xs">ICE</p>
-              <p class="text-[#AFE894] font-bold leading-4 text-xs">HOT</p>
-            </div>
-            <div class="absolute bottom-0 px-4 pb-4">
-              <h3 class="product-title text-primary leading-4 font-semibold text-base" style="text-shadow: 0px 0px 9px #000000, 0px 0px 15px #FFFFFF, 0px 0px 5px #000000;">
-                Sakura Latte
-              </h3>
-              <h2 
-                class="price text-white mt-3 font-semibold text-xs" 
-                style="text-shadow: 0px 0px 9px #46E300, 0px 0px 15px #46E300, 0px 0px 5px #46E300; font-family: 'Public Pixel', sans-serif;"
-              >
-                Rp.25.000
-              </h2>
-            </div>
-          </div>
+          </template>
         </div>
       </div>
 
       <div x-show="showMakanan">
-        <div class="products flex gap-4 flex-wrap justify-center mt-5">
-          <div 
-            class="product-card h-[211px] w-[155px] rounded-lg mt-4 relative border border-[#46E300]"
-            style="box-shadow: 0 0 6px 1px #46E300;"
-          >
-            <img src="./assets/img/products/Pangrisu.jpg" alt="" class="rounded-lg object-cover h-[211px] w-[155px]">
-            <div class="absolute bottom-0 px-4 pb-4">
-              <h3 class="product-title text-primary leading-4 font-semibold text-base" style="text-shadow: 0px 0px 9px #000000, 0px 0px 15px #FFFFFF, 0px 0px 5px #000000;">Pang-Risu Goreng</h3>
-              <h2 
-                class="price text-white mt-3 font-semibold text-xs" 
-                style="text-shadow: 0px 0px 9px #46E300, 0px 0px 15px #46E300, 0px 0px 5px #46E300; font-family: 'Public Pixel', sans-serif;"
-              >
-                Rp.30.000
-              </h2>
+        <div class="products flex gap-4 flex-wrap justify-center">
+          <template x-for="data in products.foods">
+            <div 
+              class="product-card h-[211px] w-[155px] rounded-lg mt-4 relative border border-[#46E300] cursor-pointer"
+              style="box-shadow: 0 0 6px 1px #46E300;"
+              x-on:click="
+                open = true
+                product = data
+              "
+            >
+              <img x-bind:src="'./assets/img/products/'+data.img" src="./assets/img/products/Korisu.jpg" alt="" class="rounded-lg object-cover h-[211px] w-[155px]">
+              <div class="absolute bottom-0 px-4 pb-4">
+                <h3 class="product-title text-primary leading-4 font-semibold text-base" style="text-shadow: 0px 0px 9px #000000, 0px 0px 15px #FFFFFF, 0px 0px 5px #000000;" x-text="data.name">
+                  Ko.Risu
+                </h3>
+                <h2 
+                  class="price text-white mt-3 font-semibold text-xs" 
+                  style="text-shadow: 0px 0px 9px #46E300, 0px 0px 15px #46E300, 0px 0px 5px #46E300; font-family: 'Public Pixel', sans-serif;"
+                  x-text="data.price"
+                >
+                  Rp.25.000
+                </h2>
+              </div>
             </div>
-          </div>
-          <div 
-            class="product-card h-[211px] w-[155px] rounded-lg mt-4 relative border border-[#46E300]"
-            style="box-shadow: 0 0 6px 1px #46E300;"
-          >
-            <img src="./assets/img/products/Pangrisu-Kuah.jpg" alt="" class="rounded-lg object-cover h-[211px] w-[155px]">
-            <div class="absolute bottom-0 px-4 pb-4">
-              <h3 class="product-title text-primary leading-4 font-semibold text-base" style="text-shadow: 0px 0px 9px #000000, 0px 0px 15px #FFFFFF, 0px 0px 5px #000000;">Pang-Risu Kuah</h3>
-              <h2 
-                class="price text-white mt-3 font-semibold text-xs" 
-                style="text-shadow: 0px 0px 9px #46E300, 0px 0px 15px #46E300, 0px 0px 5px #46E300; font-family: 'Public Pixel', sans-serif;"
-              >
-                Rp.30.000
-              </h2>
-            </div>
-          </div>
-          <div 
-            class="product-card h-[211px] w-[155px] rounded-lg mt-4 relative border border-[#46E300]"
-            style="box-shadow: 0 0 6px 1px #46E300;"
-          >
-            <img src="./assets/img/products/O-Risu.jpg" alt="" class="rounded-lg object-cover h-[211px] w-[155px]">
-            <div class="absolute bottom-0 px-4 pb-4">
-              <h3 class="product-title text-primary leading-4 font-semibold text-base" style="text-shadow: 0px 0px 9px #000000, 0px 0px 15px #FFFFFF, 0px 0px 5px #000000;">
-                O-Risu
-              </h3>
-              <h2 
-                class="price text-white mt-3 font-semibold text-xs" 
-                style="text-shadow: 0px 0px 9px #46E300, 0px 0px 15px #46E300, 0px 0px 5px #46E300; font-family: 'Public Pixel', sans-serif;"
-              >
-                Rp.23.000
-              </h2>
-            </div>
-          </div>
-          <div 
-            class="product-card h-[211px] w-[155px] rounded-lg mt-4 relative border border-[#46E300]"
-            style="box-shadow: 0 0 6px 1px #46E300;"
-          >
-            <img src="./assets/img/products/Nana-Pie.JPG" alt="" class="rounded-lg object-cover h-[211px] w-[155px]">
-            <div class="absolute bottom-0 px-4 pb-4">
-              <h3 class="product-title text-primary leading-4 font-semibold text-base" style="text-shadow: 0px 0px 9px #000000, 0px 0px 15px #FFFFFF, 0px 0px 5px #000000;">
-                Nana Pie
-              </h3>
-              <h2 
-                class="price text-white mt-3 font-semibold text-xs" 
-                style="text-shadow: 0px 0px 9px #46E300, 0px 0px 15px #46E300, 0px 0px 5px #46E300; font-family: 'Public Pixel', sans-serif;"
-              >
-                Rp.25.000
-              </h2>
-            </div>
-          </div>
+          </template>
         </div>
       </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+        x-show="open"
+        style="display: none"
+        x-on:keydown.escape.prevent.stop="open = false"
+        role="dialog"
+        aria-modal="true"
+        x-id="['modal-title']"
+        :aria-labelledby="$id('modal-title')"
+        class="fixed inset-0 z-10 overflow-y-auto"
+    >
+        <!-- Overlay -->
+        <div x-show="open" x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
+ 
+        <!-- Panel -->
+        <div
+            x-show="open" x-transition
+            x-on:click="open = false"
+            class="relative flex min-h-screen items-center justify-center p-4"
+        >
+            <div
+                x-on:click.stop
+                x-trap.noscroll.inert="open"
+                class="relative w-full max-w-2xl overflow-y-auto rounded-xl bg-[#111111] p-2 shadow-lg border border-[#46E300]"
+                style="box-shadow: 0 0 6px 1px #46E300;"
+            >
+                <button 
+                  class="absolute top-0 right-0 bg-primary text-white rounded-full w-8 h-8 flex justify-center items-center text-xl font-bold"
+                  x-on:click="open = false"
+                >
+                  x
+                </button>
+                <!-- Content -->
+                <img x-bind:src="'./assets/img/products/'+product.img" src="./assets/img/products/Korisu.jpg" class="rounded-lg mx-auto">
+
+                <div class="text-black absolute top-8 right-4">
+
+                  <template x-if="product.varian">
+                      <template x-for="varian in product.varian">
+                        <p class="font-bold text-right" style="text-shadow: 0px 0px 9px #FFFFFF, 0px 0px 15px #FFFFFF, 0px 0px 5px #FFFFFF;" x-text="varian"></p>
+                      </template>
+                  </template>
+                </div>
+
+                <!-- Description-->
+                <p 
+                  class="text-white mt-2 text-sm" 
+                  style="text-shadow: 0px 0px 9px #46E300, 0px 0px 15px #46E300, 0px 0px 5px #46E300; font-family: 'Public Pixel', sans-serif;" 
+                  x-text="product.description"
+                >
+                  Kopi Susu Risu
+                </p>
+            </div>
+        </div>
     </div>
   </section>
 </body>
