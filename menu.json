@@ -136,28 +136,28 @@
       "name"  : "Pang-Risu Goreng",
       "varian" : [],
       "price" : "30.000",
-      "img" : "pangrisu.jpg",
+      "img" : "Pangrisu-Goreng.jpg",
       "description" : "Pangsit isi ayam & keju. Dengan tingkatan pedas lvl 0-3"
     },
     { 
       "name"  : "Sushi Risu Egg Roll",
       "varian" : [],
       "price" : "25.000",
-      "img" : "sushirisu-Egg.jpg",
+      "img" : "Sushirisu-Egg.jpg",
       "description" : "Sushi ala RISU dengan isian wortel & timun"
     },
     { 
       "name"  : "Sushi Risu",
       "varian" : ["Spicy Chicken", "Chicken Katsu"],
       "price" : "28.000",
-      "img" : "sushirisu.jpg",
+      "img" : "Sushirisu.jpg",
       "description" : "Sushi ala RISU dengan isian wortel & timun"
     },
     { 
       "name"  : "Nana Pie",
       "varian" : [],
       "price" : "25.000",
-      "img" : "Nana-Pie.jpg",
+      "img" : "Nana-Pie1.jpg",
       "description" : "2 PCS pie isian apel favorit Nana-MLBB"
     },
     { 
