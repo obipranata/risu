@@ -20,6 +20,38 @@
         "description" : "Kopi Susu Gula Aren Risu"
       },
       { 
+        "name"  : "KoBasu",
+        "ice"  : true,
+        "hot"    : false,
+        "price" : "28.000",
+        "img" : "illustration-drink.jpg",
+        "description" : "Kopi Banana Risu"
+      },
+      { 
+        "name"  : "KoMasu",
+        "ice"  : true,
+        "hot"    : false,
+        "price" : "28.000",
+        "img" : "illustration-drink.jpg",
+        "description" : "Kopi Matcha Risu"
+      },
+      { 
+        "name"  : "KoVaSu",
+        "ice"  : true,
+        "hot"    : false,
+        "price" : "28.000",
+        "img" : "illustration-drink.jpg",
+        "description" : "Kopi Vanila Risu"
+      },
+      { 
+        "name"  : "Orenji Kohii",
+        "ice"  : true,
+        "hot"    : false,
+        "price" : "28.000",
+        "img" : "Orenji-Koohi.jpg",
+        "description" : "Kopi Moctail Varian Apel Orange"
+      },
+      { 
         "name"  : "Kuroi Ringo",
         "ice"  : true,
         "hot"    : false,
@@ -28,12 +60,12 @@
         "description" : "Kopi Moctail Varian Apel Hijau"
       },
       { 
-        "name"  : "Orenji Koohi",
+        "name"  : "SAkura Kohii",
         "ice"  : true,
         "hot"    : false,
         "price" : "28.000",
-        "img" : "Orenji-Koohi.jpg",
-        "description" : "Kopi Moctail Varian Apel Orange"
+        "img" : "illustration-drink.jpg",
+        "description" : "Kopi Moctail Varian Strawberry"
       }
     ],
     "espresso" :
@@ -82,7 +114,7 @@
         "description" : "Choco Powder + Fresh Milk"
       },
       { 
-        "name"  : "Mactcha Latte",
+        "name"  : "Matcha Latte",
         "ice"  : true,
         "hot"    : true,
         "price" : "25.000",
@@ -104,6 +136,30 @@
         "price" : "28.000",
         "img" : "Sakura-Cookies.jpg",
         "description" : "Sakura Syrup + Fresh Milk + Biskuit Regal"
+      },
+      { 
+        "name"  : "Ringo Squash",
+        "ice"  : true,
+        "hot"    : false,
+        "price" : "23.000",
+        "img" : "illustration-drink.jpg",
+        "description" : "Apel Syrup & Soda + Perasan Lemon"
+      },
+      { 
+        "name"  : "Oranji Squash",
+        "ice"  : true,
+        "hot"    : false,
+        "price" : "23.000",
+        "img" : "illustration-drink.jpg",
+        "description" : "Jeruk Syrup & Soda + Perasan Lemon"
+      },
+      { 
+        "name"  : "Ringo Squash",
+        "ice"  : true,
+        "hot"    : false,
+        "price" : "23.000",
+        "img" : "illustration-drink.jpg",
+        "description" : "Strawberry Syrup & Soda + Perasan Lemon"
       }
     ]
   },
@@ -171,7 +227,7 @@
       "name"  : "SuGer",
       "varian" : [],
       "price" : "25.000",
-      "img" : "suger.jpg",
+      "img" : "suger1.jpg",
       "description" : "Burger dengan resep rahasia krusty krab"
     }
   ]
