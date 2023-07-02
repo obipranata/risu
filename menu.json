@@ -4,6 +4,14 @@
     "signature" : 
     [
       { 
+        "name"  : "Classic Risu",
+        "ice"  : true,
+        "hot"    : true,
+        "price" : "25.000",
+        "img" : "classic-risu.jpeg",
+        "description" : "Kopi Susu Risu"
+      },
+      { 
         "name"  : "Ko.Risu",
         "ice"  : true,
         "hot"    : true,
@@ -177,7 +185,7 @@
       "varian" : [
         "Cokelat", "Keju"
       ],
-      "price" : "28.000",
+      "price" : "30.000",
       "img" : "Suns-Banana.jpg",
       "description" : "Pisang dengan isian yang dibalut kulit lumpia"
     },
@@ -198,35 +206,35 @@
     { 
       "name"  : "Sushi Risu Egg Roll",
       "varian" : [],
-      "price" : "25.000",
+      "price" : "28.000",
       "img" : "Sushirisu-Egg.jpg",
       "description" : "Sushi ala RISU dengan isian wortel & timun"
     },
     { 
-      "name"  : "Sushi Risu",
-      "varian" : ["Spicy Chicken", "Chicken Katsu"],
-      "price" : "28.000",
+      "name"  : "Sushi Risu Spicy Chicken",
+      "varian" : [],
+      "price" : "30.000",
       "img" : "Sushirisu.jpg",
       "description" : "Sushi ala RISU dengan isian wortel & timun"
     },
     { 
-      "name"  : "Nana Pie",
+      "name"  : "Sushi Risu Chicken Katsu",
       "varian" : [],
-      "price" : "25.000",
-      "img" : "Nana-Pie1.jpg",
-      "description" : "2 PCS pie isian apel favorit Nana-MLBB"
+      "price" : "35.000",
+      "img" : "chicken-katsu.jpeg",
+      "description" : "Sushi ala RISU dengan isian wortel & timun"
     },
     { 
-      "name"  : "Bom-Bom PacMan",
-      "varian" : ["Pedas", "Balado", "Jagung Bakar"],
-      "price" : "20.000",
-      "img" : "Bom-Bom-Pacman.jpg",
-      "description" : "Cimol Ala RISU dengan isian Mozzarella"
+      "name"  : "SuGer Original",
+      "varian" : [],
+      "price" : "28.000",
+      "img" : "suger1.jpg",
+      "description" : "Burger dengan resep rahasia krusty krab"
     },
     { 
-      "name"  : "SuGer",
+      "name"  : "SuGer Crispy",
       "varian" : [],
-      "price" : "25.000",
+      "price" : "30.000",
       "img" : "suger1.jpg",
       "description" : "Burger dengan resep rahasia krusty krab"
     }
